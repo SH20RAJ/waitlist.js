@@ -1,85 +1,7 @@
 import React, { useState } from 'react';
 import { FiCheck } from 'react-icons/fi';
 import { motion } from 'framer-motion';
-
-const pricingPlans = [
-  {
-    name: 'Free',
-    price: {
-      monthly: 0,
-      yearly: 0
-    },
-    description: 'Perfect for testing the waters',
-    features: [
-      'Up to 250 waitlist entries',
-      'Basic waitlist widget',
-      'Email notifications',
-      'Simple analytics',
-      'Community support'
-    ],
-    cta: 'Get Started',
-    highlighted: false
-  },
-  {
-    name: 'Growth',
-    price: {
-      monthly: 49,
-      yearly: 470
-    },
-    description: 'For growing businesses and startups',
-    features: [
-      'Up to 5,000 waitlist entries',
-      'Advanced widget customization',
-      'Referral system',
-      'A/B testing',
-      'Basic segmentation',
-      'Email support',
-      'API access'
-    ],
-    cta: 'Start Free Trial',
-    highlighted: true
-  },
-  {
-    name: 'Pro',
-    price: {
-      monthly: 149,
-      yearly: 1430
-    },
-    description: 'For established businesses',
-    features: [
-      'Up to 25,000 waitlist entries',
-      'Advanced segmentation',
-      'AI-powered insights',
-      'Custom branding',
-      'Priority support',
-      'Advanced analytics',
-      'Webhook integrations',
-      'Team collaboration'
-    ],
-    cta: 'Start Free Trial',
-    highlighted: false
-  },
-  {
-    name: 'Scale',
-    price: {
-      monthly: 399,
-      yearly: 3830
-    },
-    description: 'For high-growth companies',
-    features: [
-      'Up to 100,000 waitlist entries',
-      'All Pro features',
-      'Dedicated success manager',
-      'Custom integrations',
-      'White labeling',
-      'Advanced security features',
-      'Multi-product management',
-      'Priority feature requests'
-    ],
-    cta: 'Contact Sales',
-    highlighted: false
-  }
-];
+import { pricingPlans } from '@/constants';
 
 const Pricing = () => {
   const [annual, setAnnual] = useState(true);
@@ -92,7 +14,7 @@ const Pricing = () => {
           <p className="text-gray-600 max-w-3xl mx-auto">
             Choose the plan that's right for your business. All plans include a 14-day free trial.
           </p>
-          
+
           <div className="mt-8 inline-flex items-center p-1 bg-gray-100 rounded-lg">
             <button
               className={`px-4 py-2 rounded-md ${annual ? 'bg-white shadow-md' : 'text-gray-700'}`}
@@ -111,11 +33,11 @@ const Pricing = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {pricingPlans.map((plan, index) => (
-            <motion.div 
-              key={index} 
+            <motion.div
+              key={index}
               className={`rounded-xl overflow-hidden ${
-                plan.highlighted 
-                  ? 'border-2 border-primary-500 shadow-glow relative' 
+                plan.highlighted
+                  ? 'border-2 border-primary-500 shadow-glow relative'
                   : 'border border-gray-200 shadow-md'
               }`}
               initial={{ opacity: 0, y: 20 }}
@@ -135,7 +57,7 @@ const Pricing = () => {
                   <span className="text-4xl font-bold">${annual ? plan.price.yearly : plan.price.monthly}</span>
                   <span className="text-gray-600">/{annual ? 'year' : 'month'}</span>
                 </div>
-                <button 
+                <button
                   className={`w-full mb-6 btn ${
                     plan.highlighted ? 'btn-primary' : 'btn-outline'
                   }`}

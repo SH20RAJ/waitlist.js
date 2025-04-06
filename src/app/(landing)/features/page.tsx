@@ -6,56 +6,42 @@ import Features from '@/components/Features';
 import CTA from '@/components/CTA';
 import { motion } from 'framer-motion';
 import { FiBarChart2, FiUsers, FiLayers, FiZap, FiTarget, FiShuffle, FiSmartphone, FiCode, FiMessageCircle, FiShield } from 'react-icons/fi';
+import { featuresDetails } from '@/constants';
 
-const featuresDetails = [
-  {
-    icon: <FiBarChart2 className="w-10 h-10" />,
-    title: 'Smart Analytics Dashboard',
-    description: 'Gain deep insights into your waitlist performance with real-time metrics, conversion tracking, and growth forecasting. Our analytics dashboard provides comprehensive data visualization, custom reports, and actionable insights to help you optimize your waitlist strategy.',
-    image: '/images/analytics-dashboard.jpg'
-  },
-  {
-    icon: <FiUsers className="w-10 h-10" />,
-    title: 'Viral Growth Mechanics',
-    description: 'Turn waitlist members into advocates with our multi-tier referral system, social challenges, and leaderboards. Our viral growth tools incentivize sharing, track referral sources, and reward your most active promoters, helping you achieve exponential growth without additional marketing spend.',
-    image: '/images/viral-growth.jpg'
-  },
-  {
-    icon: <FiLayers className="w-10 h-10" />,
-    title: 'Intuitive Widget Builder',
-    description: 'Create stunning, conversion-optimized waitlist forms with our drag-and-drop builder. Choose from dozens of templates or build your own custom design. Our widget builder includes advanced styling options, custom fields, and responsive design to ensure your waitlist looks perfect on any device.',
-    image: '/images/widget-builder.jpg'
-  },
-  {
-    icon: <FiZap className="w-10 h-10" />,
-    title: 'AI-Powered Engagement',
-    description: 'Leverage machine learning to predict which members are most likely to convert and automatically personalize their experience. Our AI analyzes user behavior, engagement patterns, and demographic data to help you focus your efforts on high-value prospects and deliver targeted messaging.',
-    image: '/images/ai-engagement.jpg'
-  },
-  {
-    icon: <FiTarget className="w-10 h-10" />,
-    title: 'Advanced Segmentation',
-    description: 'Group waitlist members by source, behavior, or custom attributes to deliver targeted messaging and experiences. Our segmentation tools allow you to create dynamic groups based on any data point, enabling personalized communication strategies that drive higher engagement and conversion rates.',
-    image: '/images/segmentation.jpg'
-  },
-  {
-    icon: <FiShuffle className="w-10 h-10" />,
-    title: 'A/B Testing Engine',
-    description: 'Optimize every aspect of your waitlist with our built-in testing tools for messaging, design, and incentives. Our A/B testing engine allows you to run controlled experiments, measure statistical significance, and automatically implement winning variations to continuously improve performance.',
-    image: '/images/ab-testing.jpg'
-  }
-];
+// Map the icon names from constants to actual icon components
+const getIconComponent = (iconName: string, className: string) => {
+  const icons: Record<string, JSX.Element> = {
+    BarChart2: <FiBarChart2 className={className} />,
+    Users: <FiUsers className={className} />,
+    Layers: <FiLayers className={className} />,
+    Shuffle: <FiShuffle className={className} />,
+    Target: <FiTarget className={className} />,
+    Zap: <FiZap className={className} />,
+    Smartphone: <FiSmartphone className={className} />,
+    Code: <FiCode className={className} />,
+    MessageCircle: <FiMessageCircle className={className} />,
+    Shield: <FiShield className={className} />
+  };
+
+  return icons[iconName] || <FiBarChart2 className={className} />;
+};
+
+// Transform the features details to include the icon component
+const featureDetailsWithIcons = featuresDetails.map(feature => ({
+  ...feature,
+  icon: getIconComponent(feature.icon, "w-10 h-10")
+}));
 
 const FeaturesPage = () => {
   return (
     <>
-      <PageHeader 
+      <PageHeader
         title="Powerful Features to Supercharge Your Waitlist"
         subtitle="Discover the tools and capabilities that make Waitlist.js the most comprehensive waitlist management platform on the market."
       />
-      
+
       <Features />
-      
+
       <section className="py-20 bg-gray-50">
         <div className="container-custom">
           <div className="text-center mb-16">
@@ -64,10 +50,10 @@ const FeaturesPage = () => {
               Explore the powerful capabilities that make Waitlist.js the preferred choice for businesses of all sizes.
             </p>
           </div>
-          
+
           <div className="space-y-24">
-            {featuresDetails.map((feature, index) => (
-              <motion.div 
+            {featureDetailsWithIcons.map((feature, index) => (
+              <motion.div
                 key={index}
                 className={`flex flex-col ${index % 2 === 0 ? 'lg:flex-row' : 'lg:flex-row-reverse'} items-center gap-12`}
                 initial={{ opacity: 0, y: 50 }}
@@ -104,7 +90,7 @@ const FeaturesPage = () => {
           </div>
         </div>
       </section>
-      
+
       <CTA />
     </>
   );
