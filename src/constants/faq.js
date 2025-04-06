@@ -46,7 +46,7 @@ export const technicalFAQs = [
   }
 ];
 
-export const pricingFAQs = [
+export const faqPricingQuestions = [
   {
     question: "Can I change plans later?",
     answer: "Yes, you can upgrade, downgrade, or cancel your plan at any time. Changes to your plan will be reflected in your next billing cycle."
@@ -69,7 +69,7 @@ export const pricingFAQs = [
   }
 ];
 
-export const legalFAQs = [
+export const faqLegalQuestions = [
   {
     question: "Who owns the data collected through Waitlist.js?",
     answer: "You own all the data you collect through Waitlist.js. We process this data on your behalf and in accordance with our Data Processing Agreement. We do not sell your data or use it for purposes other than providing our services to you."

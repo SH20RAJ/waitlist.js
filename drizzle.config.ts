@@ -1,13 +1,18 @@
-require("dotenv").config();
+import type { Config } from 'drizzle-kit';
+import * as dotenv from 'dotenv';
 
-import type { Config } from "drizzle-kit";
+// Load environment variables
+dotenv.config();
+
+if (!process.env.DATABASE_URL) {
+  throw new Error('DATABASE_URL environment variable is not set');
+}
 
 export default {
-  schema: "./db/schema.ts",
-  out: "./migrations",
-  dialect: "turso",
+  schema: './src/db/schema.ts',
+  out: './drizzle',
+  dialect: 'sqlite',
   dbCredentials: {
-    url: process.env.TURSO_DATABASE_URL!,
-    authToken: process.env.TURSO_AUTH_TOKEN,
+    url: process.env.DATABASE_URL,
   },
 } satisfies Config;

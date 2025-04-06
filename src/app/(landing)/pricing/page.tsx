@@ -6,7 +6,7 @@ import Pricing from '@/components/Pricing';
 import CTA from '@/components/CTA';
 import { motion } from 'framer-motion';
 import { FiCheck } from 'react-icons/fi';
-import { pricingFAQs, pricingComparisonFeatures } from '@/constants';
+import { faqPricingQuestions, pricingComparisonFeatures } from '@/constants';
 
 const PricingPage = () => {
   return (
@@ -28,7 +28,7 @@ const PricingPage = () => {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
-            {pricingFAQs.map((faq, index) => (
+            {faqPricingQuestions.map((faq, index) => (
               <motion.div
                 key={index}
                 className="bg-gray-50 rounded-lg p-6 border border-gray-100"

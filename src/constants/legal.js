@@ -16,7 +16,7 @@ export const legalDocuments = [
     link: "/privacy"
   },
   {
-    icon: "Cookie",
+    icon: "FileText", // Changed from Cookie to FileText since FiCookie is not available
     title: "Cookie Policy",
     description: "Information about the cookies and tracking technologies we use.",
     lastUpdated: "March 15, 2025",
@@ -52,7 +52,7 @@ export const securityCertifications = [
   { name: "ISO 27001", logo: "/images/certifications/iso27001.svg", description: "Information security management system certification." }
 ];
 
-export const legalFAQs = [
+export const legalFaqQuestions = [
   {
     question: "Who owns the data collected through Waitlist.js?",
     answer: "You own all the data you collect through Waitlist.js. We process this data on your behalf and in accordance with our Data Processing Agreement. We do not sell your data or use it for purposes other than providing our services to you."

@@ -3,9 +3,11 @@
 import React from 'react';
 import PageHeader from '@/components/PageHeader';
 import { motion } from 'framer-motion';
-import { FiFileText, FiShield, FiCookie, FiUsers, FiGlobe, FiCreditCard } from 'react-icons/fi';
+import { FiFileText, FiShield, FiUsers, FiGlobe, FiCreditCard } from 'react-icons/fi';
+import { legalDocuments, legalFaqQuestions } from '@/constants';
 
-const legalDocuments = [
+// Using imported legalDocuments from constants, but with local icon components
+const localLegalDocuments = [
   {
     icon: <FiFileText size={24} />,
     title: "Terms of Service",
@@ -21,7 +23,7 @@ const legalDocuments = [
     link: "/privacy"
   },
   {
-    icon: <FiCookie size={24} />,
+    icon: <FiFileText size={24} />, // Using FiFileText instead of FiCookie
     title: "Cookie Policy",
     description: "Information about the cookies and tracking technologies we use.",
     lastUpdated: "March 15, 2025",
@@ -53,22 +55,22 @@ const legalDocuments = [
 const LegalPage = () => {
   return (
     <>
-      <PageHeader 
+      <PageHeader
         title="Legal Information"
         subtitle="Access our terms of service, privacy policy, and other legal documents."
       />
-      
+
       <section className="py-20 bg-white">
         <div className="container-custom">
           <div className="max-w-4xl mx-auto">
             <p className="text-gray-600 mb-12">
               At Waitlist.js, we're committed to transparency and compliance with applicable laws and regulations. Below you'll find all our legal documents, which govern your use of our services and explain how we handle your data.
             </p>
-            
+
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               {legalDocuments.map((doc, index) => (
-                <motion.div 
-                  key={index} 
+                <motion.div
+                  key={index}
                   className="bg-gray-50 rounded-xl p-6 border border-gray-100"
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
@@ -82,8 +84,8 @@ const LegalPage = () => {
                   <p className="text-gray-600 mb-4">{doc.description}</p>
                   <div className="flex items-center justify-between">
                     <span className="text-sm text-gray-500">Last updated: {doc.lastUpdated}</span>
-                    <a 
-                      href={doc.link} 
+                    <a
+                      href={doc.link}
                       className="text-primary-600 font-medium hover:text-primary-700 flex items-center"
                     >
                       View
@@ -98,7 +100,7 @@ const LegalPage = () => {
           </div>
         </div>
       </section>
-      
+
       <section className="py-20 bg-gray-50">
         <div className="container-custom">
           <div className="max-w-4xl mx-auto">
@@ -108,7 +110,7 @@ const LegalPage = () => {
             <p className="text-gray-600 mb-12 text-center">
               We take data protection and regulatory compliance seriously. Here's how we ensure your data is safe and our services meet regulatory requirements.
             </p>
-            
+
             <div className="bg-white rounded-xl shadow-md overflow-hidden">
               <div className="p-8">
                 <h3 className="text-2xl font-bold mb-6">GDPR Compliance</h3>
@@ -141,7 +143,7 @@ const LegalPage = () => {
                     <span className="text-gray-700">Data breach notification procedures</span>
                   </li>
                 </ul>
-                
+
                 <h3 className="text-2xl font-bold mb-6">CCPA Compliance</h3>
                 <p className="text-gray-600 mb-6">
                   We comply with the California Consumer Privacy Act (CCPA) and provide tools to help our customers meet their CCPA obligations, including:
@@ -166,7 +168,7 @@ const LegalPage = () => {
                     <span className="text-gray-700">Detailed records of data processing activities</span>
                   </li>
                 </ul>
-                
+
                 <h3 className="text-2xl font-bold mb-6">Security Certifications</h3>
                 <p className="text-gray-600 mb-6">
                   We maintain industry-standard security certifications to ensure your data is protected:
@@ -196,7 +198,7 @@ const LegalPage = () => {
           </div>
         </div>
       </section>
-      
+
       <section className="py-20 bg-white">
         <div className="container-custom">
           <div className="max-w-4xl mx-auto">
@@ -206,32 +208,11 @@ const LegalPage = () => {
             <p className="text-gray-600 mb-12 text-center">
               Answers to common legal questions about using Waitlist.js.
             </p>
-            
+
             <div className="space-y-6">
-              {[
-                {
-                  question: "Who owns the data collected through Waitlist.js?",
-                  answer: "You own all the data you collect through Waitlist.js. We process this data on your behalf and in accordance with our Data Processing Agreement. We do not sell your data or use it for purposes other than providing our services to you."
-                },
-                {
-                  question: "How do I ensure my waitlist forms are compliant with privacy laws?",
-                  answer: "Waitlist.js provides built-in tools to help you create compliant waitlist forms, including customizable consent checkboxes, privacy policy links, and data collection notices. However, it's your responsibility to ensure that your specific implementation meets the legal requirements in your jurisdiction."
-                },
-                {
-                  question: "Can I use Waitlist.js to collect data from children under 13?",
-                  answer: "No, Waitlist.js is not intended for use by children under 13, and our Terms of Service prohibit using our services to collect personal information from children under 13. If you believe that personal information from children under 13 has been collected through our services, please contact us immediately."
-                },
-                {
-                  question: "What happens to my data if I cancel my subscription?",
-                  answer: "If you cancel your subscription, your data will be retained for 30 days, during which time you can export it. After 30 days, your data will be deleted from our active systems, though it may remain in our backup systems for up to 90 days before being permanently deleted."
-                },
-                {
-                  question: "How do I report a security vulnerability?",
-                  answer: "If you discover a security vulnerability in our services, please report it to security@waitlistjs.com. We have a responsible disclosure policy and will work with you to address the issue promptly."
-                }
-              ].map((faq, index) => (
-                <motion.div 
-                  key={index} 
+              {legalFaqQuestions.map((faq, index) => (
+                <motion.div
+                  key={index}
                   className="bg-gray-50 rounded-xl p-6"
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
@@ -246,7 +227,7 @@ const LegalPage = () => {
           </div>
         </div>
       </section>
-      
+
       <section className="py-20 bg-gray-50">
         <div className="container-custom">
           <div className="bg-white rounded-xl shadow-md overflow-hidden max-w-4xl mx-auto">

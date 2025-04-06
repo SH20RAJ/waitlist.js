@@ -1,6 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
-import { FiTwitter, FiGithub, FiLinkedin, FiYoutube, FiMail } from 'react-icons/fi';
+import { FiTwitter, FiGithub, FiLinkedin, FiYoutube } from 'react-icons/fi';
+import { footerNavigation, siteConfig } from '@/constants';
 
 const Footer = () => {
   return (
@@ -13,7 +14,7 @@ const Footer = () => {
               <span className="text-2xl font-display font-bold text-white">Waitlist.js</span>
             </Link>
             <p className="text-gray-400 mb-4 max-w-md">
-              Transform your waitlist from a passive email collector into an active growth engine with AI-powered engagement, gamification, and conversion optimization.
+              {siteConfig.website.description}
             </p>
             <div className="flex space-x-4">
               <a href="https://twitter.com/waitlistjs" className="text-gray-400 hover:text-white transition-colors">
@@ -35,11 +36,13 @@ const Footer = () => {
           <div>
             <h3 className="text-lg font-bold mb-4">Product</h3>
             <ul className="space-y-2">
-              <li><Link href="/features" className="text-gray-400 hover:text-white transition-colors">Features</Link></li>
-              <li><Link href="/pricing" className="text-gray-400 hover:text-white transition-colors">Pricing</Link></li>
-              <li><Link href="/integrations" className="text-gray-400 hover:text-white transition-colors">Integrations</Link></li>
-              <li><Link href="/enterprise" className="text-gray-400 hover:text-white transition-colors">Enterprise</Link></li>
-              <li><Link href="/security" className="text-gray-400 hover:text-white transition-colors">Security</Link></li>
+              {footerNavigation.product.map((item, index) => (
+                <li key={index}>
+                  <Link href={item.href} className="text-gray-400 hover:text-white transition-colors">
+                    {item.title}
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
 
@@ -47,11 +50,13 @@ const Footer = () => {
           <div>
             <h3 className="text-lg font-bold mb-4">Resources</h3>
             <ul className="space-y-2">
-              <li><Link href="/docs" className="text-gray-400 hover:text-white transition-colors">Documentation</Link></li>
-              <li><Link href="/api" className="text-gray-400 hover:text-white transition-colors">API Reference</Link></li>
-              <li><Link href="/blog" className="text-gray-400 hover:text-white transition-colors">Blog</Link></li>
-              <li><Link href="/guides" className="text-gray-400 hover:text-white transition-colors">Guides</Link></li>
-              <li><Link href="/community" className="text-gray-400 hover:text-white transition-colors">Community</Link></li>
+              {footerNavigation.resources.map((item, index) => (
+                <li key={index}>
+                  <Link href={item.href} className="text-gray-400 hover:text-white transition-colors">
+                    {item.title}
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
 
@@ -59,29 +64,27 @@ const Footer = () => {
           <div>
             <h3 className="text-lg font-bold mb-4">Company</h3>
             <ul className="space-y-2">
-              <li><Link href="/about" className="text-gray-400 hover:text-white transition-colors">About Us</Link></li>
-              <li><Link href="/customers" className="text-gray-400 hover:text-white transition-colors">Customers</Link></li>
-              <li><Link href="/careers" className="text-gray-400 hover:text-white transition-colors">Careers</Link></li>
-              <li><Link href="/contact" className="text-gray-400 hover:text-white transition-colors">Contact</Link></li>
-              <li><Link href="/legal" className="text-gray-400 hover:text-white transition-colors">Legal</Link></li>
+              {footerNavigation.company.map((item, index) => (
+                <li key={index}>
+                  <Link href={item.href} className="text-gray-400 hover:text-white transition-colors">
+                    {item.title}
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
         </div>
 
         <div className="pt-8 border-t border-gray-800 flex flex-col md:flex-row justify-between items-center">
           <p className="text-gray-500 text-sm mb-4 md:mb-0">
-            &copy; {new Date().getFullYear()} Waitlist.js. All rights reserved.
+            &copy; {new Date().getFullYear()} {siteConfig.website.name}. All rights reserved.
           </p>
           <div className="flex space-x-6">
-            <Link href="/privacy" className="text-gray-500 hover:text-white text-sm transition-colors">
-              Privacy Policy
-            </Link>
-            <Link href="/terms" className="text-gray-500 hover:text-white text-sm transition-colors">
-              Terms of Service
-            </Link>
-            <Link href="/cookies" className="text-gray-500 hover:text-white text-sm transition-colors">
-              Cookie Policy
-            </Link>
+            {footerNavigation.legal.slice(0, 3).map((item, index) => (
+              <Link key={index} href={item.href} className="text-gray-500 hover:text-white text-sm transition-colors">
+                {item.title}
+              </Link>
+            ))}
           </div>
         </div>
       </div>
