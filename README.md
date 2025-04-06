@@ -2,13 +2,15 @@
 
 # Waitlist.js
 
-![Waitlist.js Logo](https://via.placeholder.com/200x80?text=Waitlist.js)
+![Waitlist.js Logo](/logo.svg)
 
 ### Transform your waitlist from a passive email collector into an active growth engine
 
 [![GitHub stars](https://img.shields.io/github/stars/waitlistjs/waitlist.js?style=social)](https://github.com/waitlistjs/waitlist.js)
 [![Twitter Follow](https://img.shields.io/twitter/follow/waitlistjs?style=social)](https://twitter.com/waitlistjs)
 [![Website](https://img.shields.io/badge/Website-waitlistjs.com-blue)](https://waitlistjs.com)
+[![Visitors](https://api.visitorbadge.io/api/combined?path=https%3A%2F%2Fgithub.com%2FSH20RAJ%2Fwaitlist.js&countColor=%23263759&style=flat-square)](https://visitorbadge.io/status?path=https%3A%2F%2Fgithub.com%2FSH20RAJ%2Fwaitlist.js)
+
 
 </div>
 

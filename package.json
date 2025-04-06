@@ -17,6 +17,7 @@
     "@libsql/client": "^0.15.2",
     "autoprefixer": "^10.4.16",
     "bcryptjs": "^3.0.2",
+    "chart.js": "^4.4.8",
     "dotenv": "^16.4.7",
     "drizzle-orm": "^0.41.0",
     "framer-motion": "^10.16.16",

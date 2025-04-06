@@ -1,31 +1,54 @@
 import React from 'react';
 import { FiBarChart2, FiUsers, FiLayers, FiShuffle, FiTarget, FiZap, FiSmartphone, FiCode, FiMessageCircle, FiShield } from 'react-icons/fi';
 import { motion } from 'framer-motion';
-import { coreFeatures } from '@/constants';
 
-// Map the icon names from constants to actual icon components
-const getIconComponent = (iconName: string, className: string) => {
-  const icons: Record<string, JSX.Element> = {
-    BarChart2: <FiBarChart2 className={className} />,
-    Users: <FiUsers className={className} />,
-    Layers: <FiLayers className={className} />,
-    Shuffle: <FiShuffle className={className} />,
-    Target: <FiTarget className={className} />,
-    Zap: <FiZap className={className} />,
-    Smartphone: <FiSmartphone className={className} />,
-    Code: <FiCode className={className} />,
-    MessageCircle: <FiMessageCircle className={className} />,
-    Shield: <FiShield className={className} />
-  };
-
-  return icons[iconName] || <FiBarChart2 className={className} />;
-};
-
-// Transform the core features to include the icon component
-const features = coreFeatures.map(feature => ({
-  ...feature,
-  icon: getIconComponent(feature.icon, "w-6 h-6")
-}));
+const features = [
+  {
+    icon: <FiBarChart2 className="w-6 h-6" />,
+    title: 'Smart Analytics Dashboard',
+    description: 'Gain deep insights into your waitlist performance with real-time metrics, conversion tracking, and growth forecasting.'
+  },
+  {
+    icon: <FiUsers className="w-6 h-6" />,
+    title: 'Viral Growth Mechanics',
+    description: 'Turn waitlist members into advocates with our multi-tier referral system, social challenges, and leaderboards.'
+  },
+  {
+    icon: <FiLayers className="w-6 h-6" />,
+    title: 'Intuitive Widget Builder',
+    description: 'Create stunning, conversion-optimized waitlist forms with our drag-and-drop builder. Choose from dozens of templates.'
+  },
+  {
+    icon: <FiZap className="w-6 h-6" />,
+    title: 'AI-Powered Engagement',
+    description: 'Leverage machine learning to predict which members are most likely to convert and automatically personalize their experience.'
+  },
+  {
+    icon: <FiTarget className="w-6 h-6" />,
+    title: 'Advanced Segmentation',
+    description: 'Group waitlist members by source, behavior, or custom attributes to deliver targeted messaging and experiences.'
+  },
+  {
+    icon: <FiShuffle className="w-6 h-6" />,
+    title: 'A/B Testing Engine',
+    description: 'Optimize every aspect of your waitlist with our built-in testing tools for messaging, design, and incentives.'
+  },
+  {
+    icon: <FiSmartphone className="w-6 h-6" />,
+    title: 'Omnichannel Collection',
+    description: 'Collect signups via web, mobile, social media embeds, or even QR codes at physical locations.'
+  },
+  {
+    icon: <FiCode className="w-6 h-6" />,
+    title: 'Developer-Friendly API',
+    description: 'Seamlessly integrate waitlist data with your existing tools and workflows through our comprehensive API.'
+  },
+  {
+    icon: <FiMessageCircle className="w-6 h-6" />,
+    title: 'Community Building Tools',
+    description: 'Foster engagement with member profiles, discussion forums, live events, and polls while people wait.'
+  }
+];
 
 const container = {
   hidden: { opacity: 0 },

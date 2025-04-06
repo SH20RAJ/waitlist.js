@@ -5,8 +5,49 @@ import PageHeader from '@/components/PageHeader';
 import Pricing from '@/components/Pricing';
 import CTA from '@/components/CTA';
 import { motion } from 'framer-motion';
-import { FiCheck } from 'react-icons/fi';
-import { faqPricingQuestions, pricingComparisonFeatures } from '@/constants';
+// FiCheck is used in the Pricing component
+// Hardcoded pricing FAQs and comparison features
+const pricingFAQs = [
+  {
+    question: "Can I change plans later?",
+    answer: "Yes, you can upgrade, downgrade, or cancel your plan at any time. Changes to your plan will be reflected in your next billing cycle."
+  },
+  {
+    question: "What happens when I reach my waitlist entry limit?",
+    answer: "You'll receive a notification when you're approaching your limit. You can choose to upgrade to a higher tier or continue with your current plan, but new entries will be paused until you have available capacity."
+  },
+  {
+    question: "Do you offer discounts for startups or non-profits?",
+    answer: "Yes, we offer special pricing for eligible startups, non-profits, and educational institutions. Please contact our sales team for more information."
+  },
+  {
+    question: "Can I try all features before committing?",
+    answer: "Absolutely! Our 14-day free trial gives you access to all features of the Pro plan, allowing you to fully explore the platform before making a decision."
+  },
+  {
+    question: "Is there a long-term contract?",
+    answer: "No, all our plans are month-to-month or annual with no long-term commitment. You can cancel at any time."
+  },
+  {
+    question: "What payment methods do you accept?",
+    answer: "We accept all major credit cards (Visa, Mastercard, American Express, Discover) as well as PayPal. For Enterprise plans, we can also accommodate invoicing and wire transfers."
+  }
+];
+
+const pricingComparisonFeatures = [
+  { feature: "Waitlist Entries", free: "250", growth: "5,000", pro: "25,000", scale: "100,000", enterprise: "Unlimited" },
+  { feature: "Custom Branding", free: "Limited", growth: "Yes", pro: "Yes", scale: "Yes", enterprise: "Yes" },
+  { feature: "Referral System", free: "Basic", growth: "Advanced", pro: "Advanced", scale: "Advanced", enterprise: "Advanced" },
+  { feature: "Analytics", free: "Basic", growth: "Standard", pro: "Advanced", scale: "Enterprise", enterprise: "Enterprise" },
+  { feature: "A/B Testing", free: "No", growth: "Yes", pro: "Yes", scale: "Yes", enterprise: "Yes" },
+  { feature: "API Access", free: "No", growth: "Limited", pro: "Full", scale: "Full", enterprise: "Full" },
+  { feature: "Team Members", free: "1", growth: "3", pro: "10", scale: "Unlimited", enterprise: "Unlimited" },
+  { feature: "Email Support", free: "Limited", growth: "Standard", pro: "Priority", scale: "Dedicated", enterprise: "Dedicated" },
+  { feature: "Custom Domain", free: "No", growth: "No", pro: "Yes", scale: "Yes", enterprise: "Yes" },
+  { feature: "White Labeling", free: "No", growth: "No", pro: "No", scale: "Yes", enterprise: "Yes" },
+  { feature: "Custom Integrations", free: "No", growth: "No", pro: "Limited", scale: "Yes", enterprise: "Yes" },
+  { feature: "SLA", free: "No", growth: "No", pro: "No", scale: "Yes", enterprise: "Yes" }
+];
 
 const PricingPage = () => {
   return (
@@ -28,7 +69,7 @@ const PricingPage = () => {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
-            {faqPricingQuestions.map((faq, index) => (
+            {pricingFAQs.map((faq, index) => (
               <motion.div
                 key={index}
                 className="bg-gray-50 rounded-lg p-6 border border-gray-100"
