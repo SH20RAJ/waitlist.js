@@ -2,7 +2,7 @@
 
 # Waitlist.js
 
-![Waitlist.js Logo](/logo.svg)
+![Waitlist.js Logo](/public/logo.svg)
 
 ### Transform your waitlist from a passive email collector into an active growth engine
 
